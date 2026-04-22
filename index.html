@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Arduino IC Trainer Kit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Arduino Uno lab console</p>
+          <h1>IC Trainer Kit</h1>
+        </div>
+        <button id="connectButton" class="primary-button" type="button">
+          Connect
+        </button>
+      </header>
+
+      <section class="status-strip" aria-label="Connection status">
+        <div>
+          <span class="status-dot" id="statusDot"></span>
+          <span id="connectionStatus">Disconnected</span>
+        </div>
+        <div id="serialSupport">Checking Web Serial support...</div>
+      </section>
+
+      <section class="layout">
+        <div class="main-column">
+          <section class="panel pins-panel" aria-labelledby="pinsTitle">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Logic drivers</p>
+                <h2 id="pinsTitle">Toggle Outputs</h2>
+              </div>
+              <button id="allLowButton" class="ghost-button" type="button">
+                All LOW
+              </button>
+            </div>
+            <div id="pinGrid" class="pin-grid"></div>
+          </section>
+
+          <section class="panel trainer-board" aria-labelledby="trainerTitle">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Circuit outputs</p>
+                <h2 id="trainerTitle">7-Segment Probe Display</h2>
+              </div>
+              <span class="badge">D11-D13 A0-A3</span>
+            </div>
+
+            <div class="display-bench">
+              <div class="seven-segment" aria-label="Seven segment input display">
+                <span class="segment seg-a" data-seg="A"></span>
+                <span class="segment seg-b" data-seg="B"></span>
+                <span class="segment seg-c" data-seg="C"></span>
+                <span class="segment seg-d" data-seg="D"></span>
+                <span class="segment seg-e" data-seg="E"></span>
+                <span class="segment seg-f" data-seg="F"></span>
+                <span class="segment seg-g" data-seg="G"></span>
+              </div>
+
+              <div class="probe-bank" id="segmentProbeBank"></div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="panel clock-panel" aria-labelledby="clockTitle">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">TTL clock</p>
+                <h2 id="clockTitle">Clock Generator</h2>
+              </div>
+              <span id="clockStateBadge" class="badge">OFF</span>
+            </div>
+
+            <div class="clock-controls">
+              <button id="clockToggleButton" class="primary-button" type="button">
+                Start Clock
+              </button>
+              <button id="pulseButton" class="secondary-button" type="button">
+                Single Pulse
+              </button>
+            </div>
+
+            <label class="slider-label" for="frequencySlider">
+              <span>Frequency</span>
+              <output id="frequencyOutput" for="frequencySlider">10 Hz</output>
+            </label>
+            <input
+              id="frequencySlider"
+              class="frequency-slider"
+              type="range"
+              min="1"
+              max="1000"
+              value="10"
+            />
+            <div class="slider-scale">
+              <span>1 Hz</span>
+              <span>1000 Hz</span>
+            </div>
+          </section>
+
+          <section class="panel monitor-panel" aria-labelledby="monitorTitle">
+            <div class="panel-heading">
+              <div>
+                <p class="eyebrow">Serial monitor</p>
+                <h2 id="monitorTitle">Messages</h2>
+              </div>
+              <button id="clearLogButton" class="ghost-button" type="button">
+                Clear
+              </button>
+            </div>
+            <pre id="logOutput" class="log-output" aria-live="polite"></pre>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
