@@ -1,6 +1,8 @@
-# Arduino Uno IC Trainer Kit Web Controller
+# Arduino Uno · IC Trainer Kit
 
-This project controls an Arduino Uno-based IC trainer kit from a local web dashboard using the Web Serial API. No backend is required.
+Drive eight logic outputs, generate clock pulses, and monitor seven-segment signals from a browser. The dashboard talks to an Arduino Uno over USB using Web Serial.
+
+[Arduino setup](#arduino-setup) · [Web dashboard setup](#web-dashboard-setup) · [Pin map](#pin-map) · [Serial commands](#serial-commands)
 
 ## Pin Map
 
